@@ -30,7 +30,9 @@
                 'profile' : {'essential': false} 
             };
             amazon.Login.authorize(options,
-                'https://www.example.com/handle_login.php');
+                'https://mani4551.github.io/amazonlogin/').then((res)=>{
+console.log('res.amazon',res)
+                });
             return false;
         };
     </script>
