@@ -19,9 +19,9 @@
         d.getElementById('amazon-root').appendChild(a);
         })(document);
     </script>
-    <a href id="LoginWithAmazon">
+    <button id="LoginWithAmazon">
         Amazon
-     </a>
+    </button>
      <script type="text/javascript">
      options = {};
   options.scope = 'profile';
@@ -30,6 +30,7 @@
        alert('oauth error ' + response.error);
        return;
      }
+     console.log('aaff',response)
      amazon.Login.retrieveProfile(response.access_token, function(response) {
          alert('Hello, ' + response.profile.Name);
          alert('Your e-mail address is ' + response.profile.PrimaryEmail);
