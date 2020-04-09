@@ -8,7 +8,7 @@
 <body>
     <div id="amazon-root"></div>
     <script type="text/javascript">
-
+        console.log('oneee')
         window.onAmazonLoginReady = function() {
         amazon.Login.setClientId('amzn1.application-oa2-client.75c23d174578409eacbbf5c666b10bad');
         };
@@ -24,16 +24,13 @@
      </a>
      <script type="text/javascript">
         document.getElementById('LoginWithAmazon').onclick = function() {
-            options = {}
-            options.scope = 'profile';
-            options.scope_data = {
-                'profile' : {'essential': false} 
-            };
-            amazon.Login.authorize(options,
-                'https://mani4551.github.io/amazonlogin/').then((res)=>{
-console.log('res.amazon',res)
-                });
-            return false;
+            amazon.Login.authorize(options, function(response) {
+     if ( response.error ) {
+       alert('oauth error ' + response.error);
+       return;
+     }
+     console.log('res.amazon',response)
+            })
         };
     </script>
 </html>
